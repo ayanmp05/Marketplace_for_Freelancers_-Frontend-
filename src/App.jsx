@@ -13,7 +13,7 @@ import { createBrowserRouter, RouterProvider, Outlet, } from "react-router-dom";
 import Login from './pages/login/Login';
 import Register from './pages/register/Register';
 import { QueryClient, QueryClientProvider, useQuery, } from '@tanstack/react-query'
-import Pay from './pages/pay/pay';
+import Pay from './pages/pay/Pay';
 import Success from './pages/success/Success';
 
 
