@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import upload from "../../utils/upload";
 import newRequest from "../../utils/newRequest";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function Register() {
   const [file, setFile] = useState(null);
@@ -33,11 +33,11 @@ function Register() {
 
     const url = await upload(file);
     try {
-      await newRequest.post("/auth/register", {
+      await newRequest.post("/api/auth/register", {
         ...user,
         img: url,
       });
-      navigate("/")
+      navigate("/login")
     } catch (err) {
       console.log(err);
     }
@@ -141,11 +141,11 @@ function Register() {
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
             <p className="text-sm text-gray-600">
               Already have an account?{' '}
-              <a href="/login" className="text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200">
+              <Link to="/login" className="text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200">
                 Sign in here
-              </a>
+              </Link>
             </p>
-            <button  type="submit"  className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5" >
+            <button  type="submit"  className="w-full cursor-pointer sm:w-auto bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5" >
               Create Account
             </button>
           </div>

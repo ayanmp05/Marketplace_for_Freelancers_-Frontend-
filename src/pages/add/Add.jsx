@@ -51,17 +51,17 @@ const Add = () => {
 
   const mutation = useMutation({
     mutationFn: (gig) => {
-      return newRequest.post("/gigs", gig);
+      return newRequest.post("/api/gigs", gig);
     },
     onSuccess: () => {
       queryClient.invalidateQueries(["myGigs"]);
+      navigate("/mygigs")
     },
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     mutation.mutate(state);
-    // navigate("/mygigs")
   };
 
   return (

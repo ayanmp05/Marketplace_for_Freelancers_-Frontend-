@@ -12,14 +12,14 @@ function MyGigs() {
   const { isLoading, error, data } = useQuery({
     queryKey: ["myGigs"],
     queryFn: () =>
-      newRequest.get(`/gigs?userId=${currentUser.id}`).then((res) => {
+      newRequest.get(`/api/gigs?userId=${currentUser.id}`).then((res) => {
         return res.data;
       }),
   });
 
   const mutation = useMutation({
     mutationFn: (id) => {
-      return newRequest.delete(`/gigs/${id}`);
+      return newRequest.delete(`/api/gigs/${id}`);
     },
     onSuccess: () => {
       queryClient.invalidateQueries(["myGigs"]);

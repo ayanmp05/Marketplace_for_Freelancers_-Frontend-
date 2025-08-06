@@ -10,7 +10,7 @@ const Orders = () => {
   const { isLoading, error, data } = useQuery({
     queryKey: ["orders"],
     queryFn: () =>
-      newRequest.get(`/orders`).then((res) => {
+      newRequest.get(`/api/orders`).then((res) => {
         return res.data;
       }),
   });
@@ -21,11 +21,11 @@ const Orders = () => {
     const id = sellerId + buyerId;
 
     try {
-      const res = await newRequest.get(`/conversations/single/${id}`);
+      const res = await newRequest.get(`/api/conversations/single/${id}`);
       navigate(`/message/${res.data.id}`);
     } catch (err) {
       if (err.response.status === 404) {
-        const res = await newRequest.post(`/conversations/`, {
+        const res = await newRequest.post(`/api/conversations/`, {
           to: currentUser.seller ? buyerId : sellerId,
         });
         navigate(`/message/${res.data.id}`);
