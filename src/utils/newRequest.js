@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const newRequest = axios.create({
-  baseURL: "https://geniferr-backend.vercel.app/api",
+  baseURL: "https://geniferr-backend.onrender.com",
   withCredentials: true,
 });
 
