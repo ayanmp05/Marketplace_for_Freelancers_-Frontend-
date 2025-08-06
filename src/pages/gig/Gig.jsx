@@ -12,14 +12,14 @@ const Gig = () => {
 
   const { isLoading, error, data } = useQuery({
     queryKey: ["gig"],
-    queryFn: () => newRequest.get(`/api/gigs/single/${id}`)
+    queryFn: () => newRequest.get(`/gigs/single/${id}`)
       .then((res) => {
         return res.data;
       }),
   });
   const { isLoading: isLoadingUser, error: errorUser, data: dataUser } = useQuery({
     queryKey: ["user"],
-    queryFn: () => newRequest.get(`/api/users/${data.userId}`)
+    queryFn: () => newRequest.get(`/users/${data.userId}`)
       .then((res) => {
         return res.data;
       }),

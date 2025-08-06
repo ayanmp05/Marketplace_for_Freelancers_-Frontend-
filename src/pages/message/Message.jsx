@@ -12,14 +12,14 @@ const Message = () => {
   const { isLoading, error, data } = useQuery({
     queryKey: ["messages"],
     queryFn: () =>
-      newRequest.get(`/api/messages/${id}`).then((res) => {
+      newRequest.get(`/messages/${id}`).then((res) => {
         return res.data;
       }),
   });
 
   const mutation = useMutation({
     mutationFn: (message) => {
-      return newRequest.post(`/api/messages`, message);
+      return newRequest.post(`/messages`, message);
     },
     onSuccess: () => {
       queryClient.invalidateQueries(["messages"]);

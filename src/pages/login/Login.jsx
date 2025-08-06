@@ -15,7 +15,7 @@ function Login() {
     setIsLoading(true); // Set loading to true
     setError(null);
     try {
-      const res = await newRequest.post("/api/auth/login", { username, password });
+      const res = await newRequest.post("/auth/login", { username, password });
       localStorage.setItem("currentUser", JSON.stringify(res.data));
       navigate("/")
     } catch (err) {
