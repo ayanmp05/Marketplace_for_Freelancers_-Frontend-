@@ -3,7 +3,7 @@ import Featured from '../../component/featured/Featured'
 import TrustedBy from '../../component/trustedBy/TrustedBy'
 import Slide from '../../component/slide/Slide'
 import { cards, projects } from '../../data'
-import CatCard from '../../component/catCard/catCard'
+import CatCard from '../../component/catCard/CatCard'
 import ProjectCard from '../../component/projectCard/ProjectCard'
 
 const Home = () => {
