@@ -1,0 +1,16 @@
+.navbar{
+  display: flex;
+  flex-direction: column;
+  background-color: #312e81;
+  align-items: center;
+  color: rgb(175, 173, 173);
+  position: sticky;
+  top: 0px;
+  transition: 0.5s all ease;
+  z-index: 999;
+
+  &.active{
+    background-color: white;
+    color: black;
+  }
+}
